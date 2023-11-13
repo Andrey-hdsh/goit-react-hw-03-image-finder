@@ -1,4 +1,4 @@
-import { Header } from './Searchbar.styled';
+import { SearchbarHeader } from './seearchbar.styled';
 import { FaSistrix } from 'react-icons/fa';
 
 export const Searchbar = ({ onSubmit }) => {
@@ -13,19 +13,21 @@ export const Searchbar = ({ onSubmit }) => {
   };
 
   return (
-    <Header>
-      <form onSubmit={handleSubmit}>
-        <button type="submit">
-          <FaSistrix />
-        </button>
-
-        <input
-          name="query"
-          type="text"
-          autoFocus
-          placeholder="Search images and photos"
-        />
-      </form>
-    </Header>
+    <SearchbarHeader>
+<div>
+        <form onSubmit={handleSubmit}>
+          <button type="submit">
+            <FaSistrix />
+          </button>
+  
+          <input
+            name="query"
+            type="text"
+            autoFocus
+            placeholder="Search images and photos"
+          />
+        </form>
+</div>
+    </SearchbarHeader>
   );
 };

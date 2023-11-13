@@ -4,7 +4,7 @@ import { Searchbar } from './Searchbar/Searchbar';
 import { fetchQuery } from './API';
 import { MutatingDots } from 'react-loader-spinner';
 import { ImageGallery } from './ImageGallery/ImageGallery';
-import { Button } from './Button/Button';
+import { Button } from './LoadMoreBtn/LoadMoreButton';
 
 export class App extends Component {
   state = {
@@ -63,28 +63,33 @@ export class App extends Component {
   }
 
   render() {
-    const { isLoading , images } = this.state;
+    const { isLoading, images } = this.state;
     const loadingImage = this.state.images.length < this.state.totalHit;
 
     return (
       <div>
         <Searchbar onSubmit={this.handleNewRequest}></Searchbar>
         {isLoading && (
-          <MutatingDots
-            height="100"
-            width="100"
-            color="#3d54c9"
-            secondaryColor="#3d54c9"
-            radius="12.5"
-            ariaLabel="mutating-dots-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
+          <div>
+            <MutatingDots
+              height="100"
+              width="100"
+              color="#3d54c9"
+              secondaryColor="#3d54c9"
+              radius="12.5"
+              ariaLabel="mutating-dots-loading"
+              wrapperStyle={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+              }}
+            />
+          </div>
         )}
-        <ImageGallery hits={images} />
+        {images.length !== 0 && <ImageGallery hits={images} />}
         {loadingImage && !isLoading && <Button click={this.handleSabmit} />}
-        <Toaster />
+        <Toaster position="top-right" />
       </div>
     );
   }

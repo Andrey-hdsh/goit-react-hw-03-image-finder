@@ -5,7 +5,7 @@ display: flex;
 gap: 10px;
 column-gap: 10px;
 flex-wrap: wrap;
-justify-content: center;
-margin-top: 8px;
+justify-content: space-evenly;
+padding-top: 50px;
 margin-bottom: 20px;
 `
