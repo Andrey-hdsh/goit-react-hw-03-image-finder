@@ -22,7 +22,7 @@ Modal.setAppElement('#root');
 export const GalleryModal = ({ tags, largeImgUrl, isOpen, isClose }) => {
   return (
     <Modal
-      isOpen={true}
+      isOpen={isOpen}
       onRequestClose={isClose}
       style={customStyles}
       contentLabel={tags}

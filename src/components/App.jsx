@@ -13,6 +13,7 @@ export class App extends Component {
     page: 1,
     isLoading: false,
     error: false,
+    totalHit: 0,
   };
 
   handleNewRequest = value => {
@@ -45,6 +46,7 @@ export class App extends Component {
           images: [...prevState.images, ...resultQuery.hits],
           totalHit: resultQuery.totalHits,
         }));
+
 
         if (resultQuery.hits.length === 0) {
           toast.error(

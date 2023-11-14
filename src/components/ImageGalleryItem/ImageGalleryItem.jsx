@@ -18,6 +18,7 @@ export class ImageGalleryItem extends Component {
 
   render() {
     const { imageUrl, tags, largeImgUrl } = this.props;
+    const { isModalOpen } = this.state;
 
     return (
       <Item onClick={this.openModal}>
@@ -28,14 +29,12 @@ export class ImageGalleryItem extends Component {
           width="350px"
           height="200px"
         ></img>
-        {this.state.isModalOpen && (
           <GalleryModal
             tags={tags}
             largeImgUrl={largeImgUrl}
-            isOpen={this.openModal}
+            isOpen={isModalOpen}
             isClose={this.closeModal}
           />
-        )}
       </Item>
     );
   }
